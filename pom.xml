@@ -69,7 +69,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-starter-parent</artifactId>
-				 <version>Greenwich.M3</version>
+				 <version>Greenwich.RC1</version>
 				<type>pom</type>
 				<scope>import</scope>		
 			</dependency>											
@@ -170,7 +170,6 @@
 	    <dependency>
 	        <groupId>org.apache.derby</groupId>
 	        <artifactId>derby</artifactId>
-	        <version>10.14.2.0</version>
 			<scope>runtime</scope>	  	        
 	    </dependency>	
 		<dependency>
@@ -189,7 +188,6 @@
 		      <plugin>
 		        <groupId>org.apache.maven.plugins</groupId>
 		        <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
 		        <executions>
 		          <execution>
 		            <goals>
