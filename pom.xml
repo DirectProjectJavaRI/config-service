@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.nhind</groupId>
 	<artifactId>config-service</artifactId>
-	<version>6.0</version>
+	<version>6.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>NHIN Direct Java RI config service spring boot application</name>
     <description>NHIN Direct Java RI config service spring boot application</description>	
@@ -253,7 +253,7 @@
 	              </execution>
 	            </executions>					
 			</plugin>	
-			<!--  for releases only 					
+				
 	        <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-gpg-plugin</artifactId>
@@ -267,7 +267,7 @@
                  </execution>
                </executions>
             </plugin>
-            -->				
+		
 		</plugins>			
 	</build>
 	<reporting>
