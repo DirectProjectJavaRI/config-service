@@ -1,0 +1,13 @@
+server.port: 8082
+
+org:
+  apache:
+    tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH: true
+    catalina.connector.CoyoteAdapter.ALLOW_BACKSLASH: true
+
+spring:
+  application:
+    name: direct-config-service
+
+
+
