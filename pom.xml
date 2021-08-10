@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.nhind</groupId>
 	<artifactId>config-service</artifactId>
-	<version>8.1.0-SNAPSHOT</version>
+	<version>8.0.1</version>
 	<packaging>jar</packaging>
 	<name>NHIN Direct Java RI config service spring boot application</name>
     <description>NHIN Direct Java RI config service spring boot application</description>	
@@ -55,7 +55,7 @@
 	        <dependency>
 	            <groupId>io.pivotal.spring.cloud</groupId>
 	            <artifactId>spring-cloud-services-dependencies</artifactId>
-	            <version>3.3.0</version>
+	            <version>3.2.0.RELEASE</version>
 	            <type>pom</type>
 	            <scope>import</scope>
 	        </dependency>				
@@ -104,7 +104,7 @@
 		<dependency>
 			<groupId>org.nhind</groupId>
 			<artifactId>config-service-jar</artifactId>
-			<version>8.0.0</version>
+			<version>8.0.1</version>
 		</dependency>	
 		<dependency>
 			<groupId>org.nhind</groupId>
@@ -218,7 +218,7 @@
 	              </execution>
 	            </executions>					
 			</plugin>	
-            <!--  for releases only
+			<!-- for releases only
 	        <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-gpg-plugin</artifactId>
@@ -232,7 +232,7 @@
                  </execution>
                </executions>
             </plugin>
-            -->
+             -->
 		</plugins>			
 	</build>
 	<reporting>
