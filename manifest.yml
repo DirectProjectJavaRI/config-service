@@ -2,15 +2,17 @@
 applications:
 - name: direct-config-service
   instances: 1
-  buildpack: java_buildpack
-  path: target/config-service-6.0.1-SNAPSHOT.jar
+  buildpack: java_buildpack_offline
+  path: target/config-service-6.1-SNAPSHOT.jar
   timeout: 120
   env: 
+    spring.profiles.active: cloud
     spring.cloud.config.label: master 
     JBP_CONFIG_DEBUG: '{enabled: true}'    
     JAVA_OPTS: -Dorg.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true
+    JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
   services:
-    - directhisp-postgress
+    - directhisp-mysql
     - directhisp-config-server   
     - directhisp-rabbit
     - directhisp-eureka  
