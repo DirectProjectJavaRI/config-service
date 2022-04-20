@@ -26,3 +26,5 @@ hs_err_pid*
 /target/
 /embedded-db/
 /bin/
+/.settings/
+/.factorypath
