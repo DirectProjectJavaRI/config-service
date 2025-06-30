@@ -11,7 +11,7 @@
 	<scm>
 		<url>scm:git:https://github.com/DirectProjectJavaRI/config-service.git</url>
 		<connection>scm:git:https://github.com/DirectProjectJavaRI/config-service.git</connection>
-	</scm>
+	</scm> 
     <prerequisites>
         <maven>3.5.0</maven>
     </prerequisites>  	
