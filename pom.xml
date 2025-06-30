@@ -41,7 +41,6 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<commons-net.version>3.8.0</commons-net.version>
-		<bcprov-jdk15on.version>1.68</bcprov-jdk15on.version>
 	</properties>      	
 	<dependencyManagement>
 		<dependencies>											
@@ -91,7 +90,21 @@
 		</dependency>			       		
 	    <dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>			
+			<artifactId>spring-cloud-starter-config</artifactId>	
+			<exclusions>
+				<exclusion>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bcprov-jdk15on</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bcmail-jdk15on</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bcpkix-jdk15on</artifactId>
+				</exclusion>
+			</exclusions>					
 		</dependency>	 			
 		<dependency>
 		    <groupId>org.springframework.cloud</groupId>
@@ -104,23 +117,13 @@
 		<dependency>
 			<groupId>org.nhind</groupId>
 			<artifactId>config-service-jar</artifactId>
-			<version>8.0.5</version>
-		</dependency>	
-		<dependency>
-			<groupId>org.nhind</groupId>
-			<artifactId>direct-common</artifactId>
-			<version>8.0.0</version>	
+			<version>8.1.0-SNAPSHOT</version>
 		</dependency>	  
 	      <dependency>
 			<groupId>commons-net</groupId>
 			<artifactId>commons-net</artifactId>
 			<version>${commons-net.version}</version>
 		  </dependency>	
-		<dependency>
-		    <groupId>org.bouncycastle</groupId>
-		    <artifactId>bcprov-jdk15on</artifactId>
-		    <version>${bcprov-jdk15on.version}</version>    
-		</dependency> 
 		 <!--  Database Drivers For Connectivity Options --> 		             	    
 		<dependency>
 		    <groupId>com.h2database</groupId>
