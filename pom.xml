@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.nhind</groupId>
 	<artifactId>config-service</artifactId>
-	<version>8.0.7</version>
+	<version>8.1.0</version>
 	<packaging>jar</packaging>
 	<name>NHIN Direct Java RI config service spring boot application</name>
     <description>NHIN Direct Java RI config service spring boot application</description>	
@@ -11,7 +11,7 @@
 	<scm>
 		<url>scm:git:https://github.com/DirectProjectJavaRI/config-service.git</url>
 		<connection>scm:git:https://github.com/DirectProjectJavaRI/config-service.git</connection>
-	</scm>
+	</scm> 
     <prerequisites>
         <maven>3.5.0</maven>
     </prerequisites>  	
@@ -41,7 +41,6 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<commons-net.version>3.8.0</commons-net.version>
-		<bcprov-jdk15on.version>1.68</bcprov-jdk15on.version>
 	</properties>      	
 	<dependencyManagement>
 		<dependencies>											
@@ -91,7 +90,21 @@
 		</dependency>			       		
 	    <dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>			
+			<artifactId>spring-cloud-starter-config</artifactId>	
+			<exclusions>
+				<exclusion>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bcprov-jdk15on</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bcmail-jdk15on</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bcpkix-jdk15on</artifactId>
+				</exclusion>
+			</exclusions>					
 		</dependency>	 			
 		<dependency>
 		    <groupId>org.springframework.cloud</groupId>
@@ -104,23 +117,13 @@
 		<dependency>
 			<groupId>org.nhind</groupId>
 			<artifactId>config-service-jar</artifactId>
-			<version>8.0.5</version>
-		</dependency>	
-		<dependency>
-			<groupId>org.nhind</groupId>
-			<artifactId>direct-common</artifactId>
-			<version>8.0.0</version>	
+			<version>8.1.0</version>
 		</dependency>	  
 	      <dependency>
 			<groupId>commons-net</groupId>
 			<artifactId>commons-net</artifactId>
 			<version>${commons-net.version}</version>
 		  </dependency>	
-		<dependency>
-		    <groupId>org.bouncycastle</groupId>
-		    <artifactId>bcprov-jdk15on</artifactId>
-		    <version>${bcprov-jdk15on.version}</version>    
-		</dependency> 
 		 <!--  Database Drivers For Connectivity Options --> 		             	    
 		<dependency>
 		    <groupId>com.h2database</groupId>
@@ -233,6 +236,15 @@
                </executions>
             </plugin>
              -->
+	        <plugin>
+	          <groupId>org.sonatype.central</groupId>
+	          <artifactId>central-publishing-maven-plugin</artifactId>
+	          <version>0.8.0</version>
+	          <extensions>true</extensions>
+	          <configuration>
+	            <publishingServerId>central</publishingServerId>
+	          </configuration>
+	        </plugin>             
 		</plugins>			
 	</build>
 	<reporting>
@@ -292,24 +304,4 @@
 			</plugin>
 		</plugins>
 	</reporting>
-	<distributionManagement>
-		<site>
-			<id>nhind-site</id>
-			<name>NHIN Direct API publication site</name>
-			<url>sftp://api.nhindirect.org/x/www/api.nhindirect.org/java/site/config/config-service-jar/${project.version}</url>
-		</site>
-        <snapshotRepository>
-            <id>sonatype-snapshot</id>
-            <name>Sonatype OSS Maven SNAPSHOT Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <uniqueVersion>false</uniqueVersion>
-         </snapshotRepository>
-         <repository>
-            <id>sonatype-release</id>
-            <name>Sonatype OSS Maven Release Repositor</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-            <uniqueVersion>false</uniqueVersion>
-         </repository>				
-	</distributionManagement>
-
 </project>
