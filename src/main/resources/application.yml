@@ -6,7 +6,18 @@ info:
     description: '@project.description@'
     version: '@project.version@'
 
+
+server.port: 8082
+
+org:
+  apache:
+    tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH: true
+    catalina.connector.CoyoteAdapter.ALLOW_BACKSLASH: true
+
 spring:     
+  application:
+    name: direct-config-service
+
 #Default username and password
   security:
     basic.enabled: true
@@ -18,7 +29,7 @@ spring:
 #and not fit for purpose for ephemeral deployments (you are almost guaranteed to lose your data if 
 #using an ephemeral environment)
   r2dbc:
-    url: r2dbc:h2:file:///./embedded-db/nhindconfig
+    url: r2dbc:h2:file:///./embedded-db/nhindconfig;NON_KEYWORDS=VALUE
     username: sa
     password: 
 
