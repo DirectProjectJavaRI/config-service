@@ -20,7 +20,6 @@ spring:
 
 #Default username and password
   security:
-    basic.enabled: true
     user:
       name: admin
       password: '{bcrypt}$2a$04$WQsYXSBOnycO1/7E9bKUVevWX3.Gxv2V6ZfYx9UKoy3lm9.4TjU7e'
