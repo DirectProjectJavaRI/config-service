@@ -18,6 +18,10 @@ spring:
   application:
     name: direct-config-service
 
+  threads:
+    virtual:
+      enabled: true
+
 #Default username and password
   security:
     user:
